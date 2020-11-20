@@ -26,13 +26,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     protected FirebaseFirestore db;
-    private String TAG =  "LFNOT";
+    private String TAG = "LFNOT";
     final private String collection = "contacts";
     private ListView lv_main_contacts;
     private Button btn_main_nuevo;
     private ArrayList<ContactsModel> list;
     private ContactAdapter adapter;
     private ContactsModel model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         lv_main_contacts = findViewById(R.id.lv_main_contacts);
         btn_main_nuevo = findViewById(R.id.btn_main_nuevo);
+
         btn_main_nuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         list = new ArrayList<>();
+
         db.collection(collection)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -74,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), String.valueOf("Celular: " + list.get(i).getCelular()), Toast.LENGTH_LONG).show();
             }
         });
+
 
     }
 

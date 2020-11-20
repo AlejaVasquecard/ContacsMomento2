@@ -26,9 +26,8 @@ public class ContactAdapter extends BaseAdapter {
     private ArrayList<ContactsModel> list;
 
     public ContactAdapter(Context context, ArrayList<ContactsModel> list){
-        this.context=context;
-        this.list=list;
-
+        this.context = context;
+        this.list = list;
     }
 
 
@@ -66,6 +65,7 @@ public class ContactAdapter extends BaseAdapter {
         item_celular = view.findViewById(R.id.item_celular);
         item_correo = view.findViewById(R.id.item_correo);
         item_fecha = view.findViewById(R.id.item_fecha);
+
 
         item_nombre.setText(list.get(i).getNombre());
         item_celular.setText(list.get(i).getCelular());
